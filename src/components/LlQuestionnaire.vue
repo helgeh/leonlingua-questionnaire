@@ -1,5 +1,5 @@
 <template>
-            <h1>Questionnaire <span class="badge bg-secondary">v0.1</span></h1>
+            <h1>Sp&oslash;rreskjema <span class="badge text-bg-light">v0.3</span></h1>
 
             <div id="questionnaire">
                 <div id="questionnaire-carousel" class="carousel slide" data-bs-touch="false">

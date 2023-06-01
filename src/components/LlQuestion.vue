@@ -4,12 +4,14 @@
 
             <p>
                 <LlQuestionPart v-for="part in parts" :key='part.id' :text="part.text" :alt="part.alt" @answered="onAnswered" @reset="onReset"></LlQuestionPart> 
-                <span class="badge rounded-pill text-bg-success" v-if="correct"><i class="bi bi-check-lg"></i></span>
+                <span class="badge rounded-pill text-bg-warning" v-if="fail && !correct">
+                    <font-awesome-icon icon="fa-solid fa-times" />
+                </span>
             </p>
 
-            <div v-if="fail && !correct" class="alert alert-dark" role="alert">
+            <!-- <div v-if="fail && !correct" class="alert alert-dark" role="alert">
                 <slot />
-            </div>
+            </div> -->
 
         </li>
 
@@ -59,11 +61,13 @@ function buildParts(question, answers) {
   return parts;
 }
     
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import LlQuestionPart from './LlQuestionPart.vue'
 import _ from 'lodash'
     
   export default {
-    components: {LlQuestionPart},
+    components: {LlQuestionPart, FontAwesomeIcon},
     inject: ['resultPlugin'],
     props: ['q', 'a', 'level'],
     data(data) {

@@ -16,6 +16,11 @@
                 Vi bruker alltid «ser» om opprinnelig yrke. Her sier vi at hun var oversetter.
               </LlQuestion>
 
+              <LlQuestion q="Voy a cerrar la ventana porque tengo_." a="**frío *calor *sed">
+                  Vokabularferdighet:
+        Frío=kulde; calor=varme; sed=tørst
+                </LlQuestion>
+            
             </LlLevel>
             
             <LlLevel title="A2">
@@ -36,9 +41,10 @@
 
             </LlLevel>
 
-            <LlLevel title="Yeeehaaaw!">
+            <LlLevel title="&iexcl;Gran trabajo!" :has-next="false">
               <li class="list-group-item">
-                SÅ FLINK! <br><br>NÅ! SIGN UP FOR FANKEN!<br>
+                <h4>Du klarte alle!</h4>
+                Ønsker du å ta den offisielle Cervantes-testen kan du <a href="https://leonlingua.no/contact/">ta kontakt</a> så setter vi hjulene i gang!<br>
               </li>
             </LlLevel>
 

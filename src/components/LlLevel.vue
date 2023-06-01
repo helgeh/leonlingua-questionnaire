@@ -13,88 +13,88 @@
                 </ul>
 
                 <div class="card-footer">
-                    <button @click="checkResults" class="btn btn-secondary">Next</button>
+                    <button v-if="hasNext" @click="checkResults" class="btn btn-secondary">Neste</button>
                 </div>
 
             </div>
 
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="response">
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
-                        </svg>
-                    </button>
-                  </div>
+            <LlModal :modal-title="modalTitle" :on-dismiss="onModalHide" :disabled="preventNext">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Du klarte {{ resultCount }} av {{ totalCount }} spørsmål!</h4>
+                    <p>
+                        Var dette utfordring nok kan du registrere din epost hos oss og du vil få tilsendt alle svarene og tilbud på kurs tilpasset ditt nivå!
+                    </p>
+                  <hr>
+                  <p class="mb-0">Fyll inn skjemaet under:</p>
                 </div>
-              </div>
-            </div>
+                <div class="simplero-container">
+                </div>
+                <div v-if="!preventNext" class="alert alert-secondary mt-2" role="alert">
+                    <h5 class="alert-heading">Vil du ha mer utfordring?</h5>
+                    <p class="mb-0">
+                        Med nesten alle svarene riktig er du velkommen til å ta testen for neste nivå ({{ nextLevel }}). Da trykker du på den grønne knappen under for å gå videre.
+                    </p>
+                </div>
+            </LlModal>
 
       
         </div>
+
 
 </template>
 
 <script>
 
 import {Modal} from "bootstrap"
+
+import LlModal from './LlModal.vue'
     
   export default {
-    props: ['title'],
+    components: {LlModal},
+    props: {title: {type: String, default: ''}, hasNext: {type: Boolean, default: true}},
     inject: ['resultPlugin', 'globalCount'],
     data() {
       return {
         ok: false,
-        isActive: false
+        isActive: false,
+        modalTitle: '',
+        resultCount: 0,
+        totalCount: 0,
+        nextLevel: '',
+        preventNext: true,
+        modal: null
       }
     },
     methods: {
       checkResults() {
-        var results = this.resultPlugin.check(this.title);
-        this.ok = results.done;
+        const results = this.resultPlugin.check(this.title);
+        const percent = (results.errorCount * 100) / results.count;
+        this.ok = percent < 20; // results.done;
+        // console.log(`err: ${results.errorCount}, tot: ${results.count}, percent: ${percent}, OK: ${this.ok}`)
         if (this.ok) {
-          const el = this.$el.querySelector('#staticBackdrop');
-          this.updateModal(el, results);
-          const modal = new Modal(el);
-          modal.show();
-          // document.querySelector('#questionnaire').appendChild(document.querySelector('.modal-backdrop'));
-          // document.body.classList.remove('modal-open');
-          el.addEventListener('hide.bs.modal', this.onModalHide.bind(this));
+            this.preventNext = false;
         }
+        this.updateModal(this.modal, results);
+        const modal = new Modal(this.modal);
+        modal.show();
       },
       onModalHide() {
-        const el = this.$el.querySelector('#staticBackdrop');
+        // let simplero = document.querySelector('.simplero');
+        // simplero.classList.add('invisible');
         this.resultPlugin.advance();
-        el.removeEventListener('hide.bs.modal', this.onModalHide);
+        // const el = this.$el.querySelector('#staticBackdrop');
+        const modal = new Modal(this.modal);
+        modal.hide();
       },
       updateModal(el, results) {
         const currentLevel = this.resultPlugin.getCurrentLevel();
-        const nextLevel = this.resultPlugin.getNextLevel();
-        const modalTitle = el.querySelector('.modal-title');
-        const modalBody = el.querySelector('.modal-body .response');
-        modalTitle.textContent = `Level ${currentLevel} finished!`;
-        modalBody.textContent = `You completed all ${results.count} questions. Now advance to ${nextLevel}!`
-        // let simplero = document.createElement('script');    
-        // simplero.setAttribute('id', '_simplero_landing_page_js_290409');
-        // simplero.setAttribute('src','https://hablaonline.simplero.com/page/290409.js');
-        // simplero.setAttribute('async', '');
-        let simplero = document.querySelector('.simplero.invisible');
-        modalBody.appendChild(simplero);
+        this.modalTitle = `Nivå ${currentLevel} fullført!`;
+        this.resultCount = results.count - results.errorCount;
+        this.totalCount = results.count;
+        this.nextLevel = this.resultPlugin.getNextLevel();
+        let simplero = document.querySelector('.simplero');
+        el.querySelector('.modal-body .simplero-container').appendChild(simplero);
         simplero.classList.remove('invisible');
-        /*
-
-                <script async id="_simplero_landing_page_js_290409" src="https://hablaonline.simplero.com/page/290409.js"><\/script>
-        */
       }
     },
     created() {
@@ -102,6 +102,9 @@ import {Modal} from "bootstrap"
     beforeMount() {
       this.resultPlugin.addLevel(this.title);
       this.isActive = this.resultPlugin.getCurrentLevel() === this.title;
+    },
+    mounted() {
+        this.modal = this.$el.querySelector('#staticBackdrop');
     }
   }
 

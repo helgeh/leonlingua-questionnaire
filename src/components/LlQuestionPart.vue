@@ -3,7 +3,7 @@
       <span v-html="insertBrs(text)"></span>
       <template v-if="alt">
         <select class="" @change="onChange" v-model="answer">
-          <option value="-">Choose</option>
+          <option value="-">Velg</option>
           <option v-for="answer in alt.answers" :key='answer.toString()' :value="answer">{{answer}}</option>
         </select>
       </template>

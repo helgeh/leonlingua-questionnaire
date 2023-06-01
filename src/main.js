@@ -4,6 +4,28 @@ import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Carousel} from "bootstrap"
 
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+// import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+// library.add(faUserSecret)
+library.add(faTimes)
+
+/* add font awesome icon component */
+// Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+// Vue.config.productionTip = false
+
+
+
+
 	const app = createApp(App);
 
   const globalCount = ref(0)
@@ -42,8 +64,9 @@ import {Carousel} from "bootstrap"
         check: function (level) {
           const toCheck = results.filter(obj => obj.level === level);
           toCheck.forEach(obj => obj.callback && obj.callback());
-          const done = toCheck.filter(obj => !obj.result).length === 0;
-          return {done, level, count: toCheck.length};
+          const errorCount = toCheck.filter(obj => !obj.result).length;
+          const done = errorCount === 0;
+          return {done, level, count: toCheck.length, errorCount};
         },
         advance: function () {
           globalCount.value++;
