@@ -18,12 +18,12 @@
 
         </div>
 
-        <LlModal :on-dismiss="onModalHide" :disabled="preventNext">
+        <LlModal :on-dismiss="onModalHide" :disabled="preventNext" ref="modal">
 
             <template v-slot:title>Resultater for nivå {{currentLevel}}</template>
 
             <template v-slot:body>
-                
+
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Du klarte {{ resultCount }} av {{ totalCount }} spørsmål!</h4>
                     <p>
@@ -33,7 +33,7 @@
                     <p class="mb-0">Fyll inn skjemaet under:</p>
                 </div>
                 
-                <div class="simplero-container">
+                <div ref="simpleroContainer">
                 </div>
                 
                 <div v-if="!preventNext" class="alert alert-secondary mt-2" role="alert">
@@ -53,70 +53,63 @@
 
 </template>
 
-<script>
+<script setup>
 
-    import {Modal} from "bootstrap"
-
+    import { defineProps, ref, inject, onBeforeMount } from 'vue'
     import LlModal from './LlModal.vue'
-        
-    export default {
-        components: {LlModal},
-        inject: ['resultPlugin', 'globalCount'],
-        props: {
-            title: {
-                type: String,
-                default: ''
-            },
-            hasNext: {
-                type: Boolean,
-                default: true
-            }
+    
+    const resultPlugin = inject('resultPlugin')
+
+    const props = defineProps({
+        title: {
+            type: String,
+            default: ''
         },
-        data() {
-            return {
-                isActive: false,
-                resultCount: 0,
-                totalCount: 0,
-                currentLevel: '',
-                nextLevel: '',
-                preventNext: true,
-                modal: null
-            }
-        },
-        methods: {
-            checkResults() {
-                const results = this.resultPlugin.check(this.title);
-                if (results.errorPercent > 99)
-                    return;
-                this.updateModal(results);
-                const modal = new Modal(this.modal);
-                modal.show();
-            },
-            onModalHide() {
-                this.resultPlugin.advance();
-                const modal = new Modal(this.modal);
-                modal.hide();
-            },
-            updateModal(results) {
-                this.currentLevel = this.resultPlugin.getCurrentLevel();
-                this.nextLevel = this.resultPlugin.getNextLevel();
-                this.preventNext = results.errorPercent > 20 || this.nextLevel === '';
-                this.resultCount = results.count - results.errorCount;
-                this.totalCount = results.count;
-                this.modal.querySelector('.modal-body .simplero-container').appendChild(this.simplero);
-                this.simplero.classList.remove('invisible');
-            }
-        },
-        created() {
-        },
-        beforeMount() {
-            this.resultPlugin.addLevel(this.title);
-            this.isActive = this.resultPlugin.getCurrentLevel() === this.title;
-        },
-        mounted() {
-            this.modal = this.$el.querySelector('#staticBackdrop');
-            this.simplero = document.querySelector('.simplero');
+        hasNext: {
+            type: Boolean,
+            default: true
         }
+    })
+
+    const isActive = ref(false)
+    const resultCount = ref(0)
+    const totalCount = ref(0)
+    const currentLevel = ref('')
+    const nextLevel = ref('')
+    const preventNext = ref(true)
+
+    const modal = ref(null) // template ref (child instance)
+    const simpleroContainer = ref(null) // template ref
+
+    const simplero = document.querySelector('.simplero')
+
+
+    function checkResults() {
+        const results = resultPlugin.check(props.title)
+        if (results.errorPercent > 99)
+            return
+        updateModal(results)
+        modal.value.open()
     }
+
+    function onModalHide() {
+        resultPlugin.advance()
+        modal.value.close()
+    }
+
+    function updateModal(results) {
+        currentLevel.value = resultPlugin.getCurrentLevel()
+        nextLevel.value = resultPlugin.getNextLevel()
+        preventNext.value = results.errorPercent > 20 || nextLevel.value === ''
+        resultCount.value = results.count - results.errorCount
+        totalCount.value = results.count
+        simpleroContainer.value.appendChild(simplero)
+        simplero.classList.remove('invisible')
+    }
+
+    onBeforeMount(() => {
+        resultPlugin.addLevel(props.title)
+        isActive.value = resultPlugin.getCurrentLevel() === props.title
+    })
 
 </script>

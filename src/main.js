@@ -43,6 +43,7 @@ library.add(faTimes, faArrowRight)
       const levels = [];
       app.provide('resultPlugin', {
         addLevel(str) {
+          console.log('adding level! ', str)
           if (levels.indexOf(str) < 0)
             levels.push(str);
         },

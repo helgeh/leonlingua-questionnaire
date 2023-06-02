@@ -6,49 +6,15 @@
     
     <component :is="currentView" />
 
-    <!-- <LlQuestionnaire /> -->
-
 </template>
 
-<script>
+<script setup>
 
-    // import { ref, computed } from 'vue'
+    import { ref, computed } from 'vue'
     import LlHome from './pages/LlHome.vue'
     import LlAbout from './pages/LlAbout.vue'
-    // import Questionnaire from './pages/Questionnaire.vue'
     import LlNotFound from './pages/LlNotFound.vue'
-
     import LlQuestionnaire from './components/LlQuestionnaire.vue'
-
-
-    /*
-
-
-const routes = {
-  '/': LlHome,
-  '/about': About
-}
-
-export default {
-  data() {
-    return {
-      currentPath: window.location.hash
-    }
-  },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || NotFound
-    }
-  },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-          this.currentPath = window.location.hash
-        })
-  }
-}
-
-
-    */
 
     const routes = {
         '/': LlHome,
@@ -56,30 +22,15 @@ export default {
         '/about': LlAbout
     }
 
-    export default {
-        name: 'App',
-        components: {
-            LlHome,
-            LlQuestionnaire,
-            LlNotFound,
-            LlAbout
-        },
-        data() {
-            return {
-                currentPath: window.location.hash
-            }
-        },
-        computed: {
-            currentView() {
-                return routes[this.currentPath.slice(1) || '/'] || LlNotFound
-            }
-        },
-        mounted() {
-            window.addEventListener('hashchange', () => {
-                this.currentPath = window.location.hash
-            })
-        }
-    }
+    const currentPath = ref(window.location.hash)
+
+    const currentView = computed(() => {
+        return routes[currentPath.value.slice(1) || '/'] || LlNotFound
+    })
+
+    window.addEventListener('hashchange', () => {
+        currentPath.value = window.location.hash
+    })
 
 </script>
 

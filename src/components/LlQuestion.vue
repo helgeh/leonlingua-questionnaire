@@ -23,49 +23,48 @@
 
 </template>
 
-<script>
+<script setup>
 
+    import { inject, ref, onBeforeMount, defineProps } from 'vue'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import LlQuestionPart from './LlQuestionPart.vue'
     import {every, some} from 'lodash'
-        
-    export default {
-        components: {LlQuestionPart, FontAwesomeIcon},
-        inject: ['resultPlugin', 'utils'],
-        props: ['q', 'a', 'level'],
-        data(data) {
-            return {
-                parts: this.utils.buildParts(data.q, data.a),
-                correct: false,
-                fail: false
-            }
-        },
-        methods: {
-            onAnswered(/*answer*/) {
-                this.resultPlugin.update(this.q, this.isCorrect());
-            },
-            onReset() {
-                // this.correct = false;
-                // this.fail = false;
-            },
-            reveal() {
-                this.correct = this.isCorrect();
-                this.fail = this.isFail();
-            },
-            isCorrect() {
-                var alts = this.parts.filter(p => !!p.alt).map(p => p.alt);
-                return every(alts, alt => alt.correct);
-            },
-            isFail() {
-                var alts = this.parts.filter(p => !!p.alt).map(p => p.alt);
-                return some(alts, alt => alt.fail) && every(alts, alt => alt.fail !== undefined);
-            }
-        },
-        created() {
-            this.resultPlugin.register(this.q, this.reveal);
-        },
-        mounted() {
-        }
+
+    const resultPlugin = inject('resultPlugin')
+    const utils = inject('utils')
+
+    const props = defineProps(['q', 'a', 'level'])
+
+    const parts = ref(utils.buildParts(props.q, props.a))
+    const correct = ref(false)
+    const fail = ref(false)
+
+    function onAnswered() {
+        resultPlugin.update(props.q, isCorrect());
     }
+
+    function onReset() {
+        // correct.value = false;
+        // fail.value = false;
+    }
+
+    function reveal() {
+        correct.value = isCorrect();
+        fail.value = isFail();
+    }
+
+    function isCorrect() {
+        var alts = parts.value.filter(p => !!p.alt).map(p => p.alt);
+        return every(alts, alt => alt.correct);
+    }
+
+    function isFail() {
+        var alts = parts.value.filter(p => !!p.alt).map(p => p.alt);
+        return some(alts, alt => alt.fail) && every(alts, alt => alt.fail !== undefined);
+    }
+
+    onBeforeMount(() => {
+        resultPlugin.register(props.q, reveal);
+    })
 
 </script>

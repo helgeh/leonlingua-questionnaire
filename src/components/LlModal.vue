@@ -1,6 +1,6 @@
 <template>
     
-    <div class="modal fade" :class="{'show': showModal}" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" :class="{'show': showModal}" id="staticBackdrop" ref="el" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
 
             <div class="modal-content">
@@ -28,46 +28,52 @@
 
 </template>
 
-<script>
+<script setup>
 
+    import { ref, defineProps, defineExpose } from 'vue'
+    import { Modal } from 'bootstrap'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-    export default {
-        components: { FontAwesomeIcon },
-        data() {
-            return {
-                showModal: false
-            };
+    const showModal = ref(false)
+    const el = ref(null) // template ref
+
+    const props = defineProps({
+        modalTitle: {
+            type: String,
+            default: 'Modal Title'
         },
-        props: {
-            modalTitle: {
-                type: String,
-                default: 'Modal Title'
-            },
-            modalButtons: {
-                type: Array,
-                default: () => []
-            },
-            onDismiss: {
-                type: Function,
-                default: () => {}
-            },
-            disabled: {
-                type: Boolean,
-                default: true
-            }
+        modalButtons: {
+            type: Array,
+            default: () => []
         },
-        methods: {
-            openModal() {
-                this.showModal = true;
-            },
-            closeModal() {
-                this.showModal = false;
-            },
-            goNext() {
-                this.closeModal();
-                this.onDismiss();
-            }
+        onDismiss: {
+            type: Function,
+            default: () => {}
+        },
+        disabled: {
+            type: Boolean,
+            default: true
         }
+    })
+
+    function closeModal() {
+        showModal.value = false;
     }
+
+    function goNext() {
+        closeModal();
+        props.onDismiss();
+    }
+
+    defineExpose({
+        open() {
+            new Modal(el.value).show()
+        },
+        close() {
+            new Modal(el.value).hide()
+        },
+        el
+    })
+
 </script>
+

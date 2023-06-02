@@ -115,28 +115,27 @@
 
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        index: 0
-      }
-    },
-    methods: {
-      setIndex(i) {
-        this.index = i;
+<script setup>
+
+    import { ref, onMounted } from 'vue'
+
+    const index = ref(0)
+
+    function setIndex(i) {
+        index.value = i
         window.localStorage.setItem('current_index', i)
-      },
-      show(i) {
-        return this.index == i;
-      },
-    },
-    mounted() {
-      var val = window.localStorage.getItem('current_index')
-      if (val !== null)
-        this.index = +val;
     }
-  }
+
+    function show(i) {
+        return index.value == i
+    }
+
+    onMounted(() => {
+        var val = window.localStorage.getItem('current_index')
+        if (val !== null)
+            index.value = +val
+    })
+
 </script>
 
 <style>

@@ -55,19 +55,9 @@
 </template>
 
 
-<script>
+<script setup>
 
     import LlLevel from './LlLevel.vue'
     import LlQuestion from './LlQuestion.vue'
 
-    export default {
-        name: 'LlQuestionnaire',
-        components: {
-            LlLevel,
-            LlQuestion
-        }
-        // props: {
-        //   msg: String
-        // }
-    }
 </script>

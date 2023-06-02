@@ -13,42 +13,37 @@
 
 </template>
 
-<script>
+<script setup>
 
-    export default {
-        props: ['text', 'alt'],
-        emits: ['answered', 'correct', 'fail', 'reset'],
-        data() {
-            return {
-                answer: '-'
-            }
-        },
-        methods: {
-            insertBrs(str) {
-                return str.replace('\n', '<br />');
-            },
-            onChange() {
-                // eslint-disable-next-line
-                this.alt.correct = this.answer == this.alt.facit;
-                // eslint-disable-next-line
-                this.alt.fail = !this.alt.correct && this.answer !== '-';
-                this.emitEvents();
-            },
-            emitEvents() {
-                this.$emit('answered', this.answer);
-                if (this.alt.correct) {
-                  this.$emit('correct');
-                }
-                if (this.alt.fail) {
-                    this.$emit('fail');
-                }
-                if (this.answer === '-') {
-                    this.$emit('reset');
-                }
-            }
-        },
-        mounted() {
+    import { defineProps, defineEmits, ref } from 'vue'
 
+    const props = defineProps(['text', 'alt'])
+    const emit = defineEmits(['answered', 'correct', 'fail', 'reset'])
+
+    const answer = ref('-')
+
+    function insertBrs(str) {
+        return str.replace('\n', '<br />');
+    }
+
+    function onChange() {
+        // eslint-disable-next-line
+        props.alt.correct = answer.value == props.alt.facit;
+        // eslint-disable-next-line
+        props.alt.fail = !props.alt.correct && answer.value !== '-';
+        emitEvents();
+    }
+
+    function emitEvents() {
+        emit('answered', answer.value);
+        if (props.alt.correct) {
+          emit('correct');
+        }
+        if (props.alt.fail) {
+            emit('fail');
+        }
+        if (answer.value === '-') {
+            emit('reset');
         }
     }
 
