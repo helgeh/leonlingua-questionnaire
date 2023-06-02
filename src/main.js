@@ -1,3 +1,4 @@
+
 import { createApp, ref } from 'vue'
 import App from './App.vue'
 
@@ -34,50 +35,7 @@ library.add(faTimes, faArrowRight)
   }
   app.provide('globalCount', useCount);
 
-  app.provide('utils', {
 
-    tupleBefore(haystack, needle) {
-      const pos = haystack.indexOf(needle);
-      return [haystack.substr(0, pos), haystack.substr(pos)];
-    },
-
-    trim(str) {
-      return str.trim();
-    },
-
-    buildAlts(alternatives) {
-      // console.log('building alts...');
-      var result = [];
-        var alts = alternatives.split(';');
-        for (var k = 0; k < alts.length; k++) {
-            var obj = {answers: [], facit: ''};
-            obj.facit = this.trim(this.tupleBefore(alts[k], '**')[1].substr(2).split('*')[0]);
-            var answers = alts[k].split(/\*+/g);
-            for (var l = 0; l < answers.length; l++) {
-          var a = this.trim(answers[l]);
-                if (a.length > 0)
-                    obj.answers.push(a);
-            }
-            result.push(obj);
-        }
-      return result;
-    },
-
-    buildParts(question, answers) {
-      var alts = this.buildAlts(answers);
-      var parts = [];
-      var qparts = question.split('_');
-      for (var i = 0; i < qparts.length; i++) {
-        var obj = {id: Date.now()};
-        obj.text = qparts[i];
-        if (alts[i])
-          obj.alt = alts[i];
-        parts.push(obj);
-      }
-      return parts;
-    }
-        
-  });
 
   const resultPlugin = {
     install: (app/*, options*/) => {
@@ -121,6 +79,55 @@ library.add(faTimes, faArrowRight)
       });
     }
   };
+  app.use(resultPlugin, {});
 
 
-app.use(resultPlugin, {}).mount('#app')
+
+  app.provide('utils', {
+
+    tupleBefore(haystack, needle) {
+      const pos = haystack.indexOf(needle);
+      return [haystack.substr(0, pos), haystack.substr(pos)];
+    },
+
+    trim(str) {
+      return str.trim();
+    },
+
+    buildAlts(alternatives) {
+      // console.log('building alts...');
+      var result = [];
+        var alts = alternatives.split(';');
+        for (var k = 0; k < alts.length; k++) {
+            var obj = {answers: [], facit: ''};
+            obj.facit = this.trim(this.tupleBefore(alts[k], '**')[1].substr(2).split('*')[0]);
+            var answers = alts[k].split(/\*+/g);
+            for (var l = 0; l < answers.length; l++) {
+          var a = this.trim(answers[l]);
+                if (a.length > 0)
+                    obj.answers.push(a);
+            }
+            result.push(obj);
+        }
+      return result;
+    },
+
+    buildParts(question, answers) {
+      var alts = this.buildAlts(answers);
+      var parts = [];
+      var qparts = question.split('_');
+      for (var i = 0; i < qparts.length; i++) {
+        var obj = {id: Date.now()};
+        obj.text = qparts[i];
+        if (alts[i])
+          obj.alt = alts[i];
+        parts.push(obj);
+      }
+      return parts;
+    }
+
+  });
+
+
+
+  app.mount('#app');
