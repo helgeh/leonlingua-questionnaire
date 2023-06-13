@@ -46,10 +46,22 @@
 
                 </LlLevel>
 
+                <!-- <LlLevel title="{{level.title}}" v-for="level in levels">
+
+                    <LlQuestion v-for="q in level.questions" q="{{q.question}} a="q.>
+                        
+                    </LlQuestion>
+
+                </LlLevel> -->
+
                 <!-- END QUESTIONS -->
 
             </div>
         </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages" class="btn btn-link">Referanse</a>
     </div>
 
 </template>
@@ -57,7 +69,10 @@
 
 <script setup>
 
+    // import { inject } from 'vue'
     import LlLevel from './LlLevel.vue'
     import LlQuestion from './LlQuestion.vue'
+
+    // const levels = inject('levels')
 
 </script>

@@ -18,24 +18,24 @@
   </svg>
   <div class="p-5 text-center bg-body-tertiary rounded-3">
     <svg class="bi mt-4 mb-3" style="color: var(--bs-indigo);" width="100" height="100"><use xlink:href="#bootstrap"></use></svg>
-    <h1 class="text-body-emphasis">Instruksjoner til nivåtest</h1>
+    <h1 class="text-body-emphasis">Leonlingua Spanish Academy kan gi deg undervisning på ditt nivå i spansk</h1>
     <p class="col-lg-8 mx-auto fs-5 text-muted">
-      Her vil du få oppgaver å løse for å måle hvor god du er i spansk. Mer info følger...
+      Du finner oss på <a href="https://leonlingua.no">leonlingua.no</a>
     </p>
     <div class="d-inline-flex gap-2 mb-5">
       <a href="#/questionnaire" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill">
         Start testen
         <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
       </a>
-      <a href="#/about" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">
-        Les mer om oss
-      </a>
+      <!-- <a href="#/about" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">
+        Referanse
+      </a> -->
     </div>
   </div>
 </div>
 
 
-  <div class="container my-5" v-if="show(1)">
+  <!-- <div class="container my-5" v-if="show(1)">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Border hero with cropped image and shadows</h1>
@@ -91,17 +91,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
 
-<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+<!-- <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="lightgreen"></rect></svg>
     <strong class="me-auto">LAYOUTER</strong>
     <small>kun for testing</small>
-    <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div class="toast-body">
     <p>Elisabeth, her kan du se noen forskjellige eksempler på hvordan layout "forsiden" kan ha. Test med de tre knappene under.</p>
@@ -111,30 +111,33 @@
       <button type="button" @click="setIndex(2)" :class="{'active': show(2) }" class="btn btn-outline-primary">3</button>
     </div>
   </div>
-</div>
+</div> -->
 
 </template>
 
 <script setup>
 
-    import { ref, onMounted } from 'vue'
+    import {
+        ref, 
+        // onMounted
+    } from 'vue'
 
     const index = ref(0)
 
-    function setIndex(i) {
-        index.value = i
-        window.localStorage.setItem('current_index', i)
-    }
+    // function setIndex(i) {
+    //     index.value = i
+    //     window.localStorage.setItem('current_index', i)
+    // }
 
     function show(i) {
         return index.value == i
     }
 
-    onMounted(() => {
-        var val = window.localStorage.getItem('current_index')
-        if (val !== null)
-            index.value = +val
-    })
+    // onMounted(() => {
+    //     var val = window.localStorage.getItem('current_index')
+    //     if (val !== null)
+    //         index.value = +val
+    // })
 
 </script>
 

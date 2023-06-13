@@ -12,13 +12,13 @@
 
     import { ref, computed } from 'vue'
     import LlHome from './pages/LlHome.vue'
+    import LlSignUp from './pages/LlSignUp.vue'
     import LlAbout from './pages/LlAbout.vue'
     import LlNotFound from './pages/LlNotFound.vue'
-    import LlQuestionnaire from './components/LlQuestionnaire.vue'
 
     const routes = {
         '/': LlHome,
-        '/questionnaire': LlQuestionnaire,
+        '/questionnaire': LlSignUp,
         '/about': LlAbout
     }
 

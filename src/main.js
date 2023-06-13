@@ -13,11 +13,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
 // import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faTimes, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faArrowRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 // library.add(faUserSecret)
-library.add(faTimes, faArrowRight)
+library.add(faTimes, faArrowRight, faCaretDown)
 
 /* add font awesome icon component */
 // Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -43,7 +43,6 @@ library.add(faTimes, faArrowRight)
       const levels = [];
       app.provide('resultPlugin', {
         addLevel(str) {
-          console.log('adding level! ', str)
           if (levels.indexOf(str) < 0)
             levels.push(str);
         },
@@ -130,5 +129,4 @@ library.add(faTimes, faArrowRight)
   });
 
 
-
-  app.mount('#app');
+  app.mount('#app')
