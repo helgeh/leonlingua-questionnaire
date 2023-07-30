@@ -1,7 +1,7 @@
 <template>
     <a href="#/" class="link-secondary">&lt;- tilbake</a>
             
-    <h2>Sp&oslash;rreskjema <span class="badge text-bg-light">v0.4</span></h2>
+    <h2 title="v0.4">Niv&aring;test</h2>
 
     <div id="questionnaire">
         <div id="questionnaire-carousel" class="carousel slide" data-bs-touch="false">
@@ -20,7 +20,7 @@
             </LlQuestion>
         
             <LlQuestion q="¿A qué hora sales de casa para ir a trabajar? 
-- _ las 7.30." a="*Salto **Salgo *Salió">
+- _ a las 7.30." a="*Salto **Salgo *Salió">
               “Sales” er du-form av verbet «salir» i nåtid. Man svarer i jeg-form som er «salgo».
             </LlQuestion>
         
