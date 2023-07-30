@@ -1,7 +1,7 @@
 <template>
     <a href="#/" class="link-secondary">&lt;- tilbake</a>
             
-    <h2 title="v0.4">Niv&aring;test</h2>
+    <h2 title="v0.5">Niv&aring;test</h2>
 
     <div id="questionnaire">
         <div id="questionnaire-carousel" class="carousel slide" data-bs-touch="false">
@@ -19,7 +19,7 @@
               Ved angivelse av klokkeslett brukes alltid «a» sammen med «la/las» avhengig av tidspunktet.
             </LlQuestion>
         
-            <LlQuestion q="¿A qué hora sales de casa para ir a trabajar? 
+            <!-- <LlQuestion q="¿A qué hora sales de casa para ir a trabajar? 
 - _ a las 7.30." a="*Salto **Salgo *Salió">
               “Sales” er du-form av verbet «salir» i nåtid. Man svarer i jeg-form som er «salgo».
             </LlQuestion>
@@ -68,7 +68,7 @@ Aldri bruk «yo tampoco».
         
             <LlQuestion q="¿_ una farmacia por aquí cerca?" a="*Está **Hay *Es">
               Når man spør om noe er eller fins, bruker man «hay».
-            </LlQuestion>
+            </LlQuestion> -->
         
         </LlLevel>
     
@@ -83,7 +83,7 @@ Aldri bruk «yo tampoco».
               På spansk sier vi «Jeg er Juan» når vi presenterer oss på telefon.
             </LlQuestion>
         
-            <LlQuestion q="¿Ha venido _ estudiante?" a="**algún *alguien">
+            <!-- <LlQuestion q="¿Ha venido _ estudiante?" a="**algún *alguien">
               “alguien” har aldri et substantiv etter seg. Det står alltid alene.
             </LlQuestion>
         
@@ -144,7 +144,7 @@ _ gazpacho." a="**de primero *por primero *primero">
 Qué =Hva 
 Cuál =hvilken 
 Quién =hvem
-            </LlQuestion>
+            </LlQuestion> -->
         
         </LlLevel>
     
@@ -161,7 +161,7 @@ Vi bruker alltid «ser» om opprinnelig yrke. Her sier vi at hun var oversetter.
               «Acrodarse» er refleksivt verb og må ha refleksivt pronomen.
             </LlQuestion>
         
-            <LlQuestion q="¿Qué hora es?
+            <!-- <LlQuestion q="¿Qué hora es?
 -Pues no sé _ las 10?" a="**serán *son">
               Når vi anslår tid, bruker vi futuro simple, «serán».
             </LlQuestion>
@@ -194,7 +194,7 @@ Vi sier «es malo» når noen er slem.
             <LlQuestion q="¿Sabes algo de Ángel?
 - Pues mira, _ encontrármelo en la calle." a="**acabo de *dejo de">
               Når du akkurat har gjort noe, sier vi «acabo de».
-            </LlQuestion>
+            </LlQuestion> -->
         
         </LlLevel>
     
@@ -209,7 +209,7 @@ Når vi forteller hvordan det gikk, bruker vi «pretérito indefinido».
               Imperativ i flertall i familiær form mister -d når vi får et etterhengt pronomen.
             </LlQuestion>
         
-            <LlQuestion q="¡Qué raro! Hoy no ha venido Juan.
+            <!-- <LlQuestion q="¡Qué raro! Hoy no ha venido Juan.
 - Habrá _ al médico." a="*irá **ido">
               Vi bruker perfektum partisipp sammen med hjelpeverbet «haber» i alle tider.
 Fortid-nåtid-framtid
@@ -243,7 +243,7 @@ Fortid-nåtid-framtid
             <LlQuestion q="No gana bastante dinero para comprarse un piso, _ vive con sus padres." a="*entonces **así que * por eso *de ahí que">
               Slik at eller “así que” forklarer hvorfor han må bo hos sine foreldre. 
 Årsaks-subjunksjon.
-            </LlQuestion>
+            </LlQuestion> -->
         
         </LlLevel>
     

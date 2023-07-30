@@ -29,31 +29,20 @@
 
             <template v-slot:body>
 
-                <div v-if="levelClear" class="alert alert-success" role="alert">
+                <div class="alert" :class="{ 'alert-success': levelClear, 'alert-info': !levelClear }" role="alert">
                     <h4 class="alert-heading">Gratulerer!</h4>
                     <p>
                         Du klarte <strong>{{ resultCount }}</strong> av <strong>{{ totalCount }}</strong> spørsmål!
                     </p>
                     <hr />
-                    <p class="mb-0">
+                    <p v-if="!levelClear" class="mb-0">
+                        Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.
+                    </p>
+                    <p v-if="levelClear && !preventNext" class="mb-0">
                         Da kan du gå videre til neste nivå.
                     </p>
-                    <!-- <h4 class="alert-heading">Du klarte {{ resultCount }} av {{ totalCount }} spørsmål!</h4>
-                    <p>
-                        Var dette utfordring nok kan du registrere din epost hos oss og du vil få tilsendt alle svarene og tilbud på kurs tilpasset ditt nivå!
-                    </p>
-                    <hr>
-                    <p class="mb-0">Fyll inn skjemaet under:</p> -->
-                </div>
-
-                <div v-if="!levelClear" class="alert alert-info" role="alert">
-                    <h4 class="alert-heading">Gratulerer!</h4>
-                    <p>
-                        Du klarte <strong>{{ resultCount }}</strong> av <strong>{{ totalCount }}</strong> spørsmål!
-                    </p>
-                    <hr />
-                    <p class="mb-0">
-                        Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.
+                    <p v-if="levelClear && preventNext" class="mb-0">
+                        Du er ved veis ende. Les mer om Cervantes og nivåene <a href="https://leonlingua.no/qu_end">her</a>.
                     </p>
                     <!-- <h4 class="alert-heading">Du klarte {{ resultCount }} av {{ totalCount }} spørsmål!</h4>
                     <p>
