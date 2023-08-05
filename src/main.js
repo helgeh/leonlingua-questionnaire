@@ -34,6 +34,19 @@ import App from './App.vue'
     install: (app/*, options*/) => {
       const results = []
       const levels = []
+      const callbacks = {
+        touched: []
+      }
+      const getTouchedSummary = function(obj) {
+        const objs = results.filter(o => o.level === obj.level)
+        const touchedCount = objs.filter(o => o.touched).length
+        return { level: obj.level, all: touchedCount >= objs.length }
+      }
+      const broadcast = function(event, summary) {
+        callbacks[event].forEach(cb => {
+          cb(summary)
+        })
+      }
       app.provide('resultPlugin', {
         addLevel(str) {
           if (levels.indexOf(str) < 0)
@@ -58,6 +71,7 @@ import App from './App.vue'
             obj.touched = true
             obj.result = state
           }
+          broadcast('touched', getTouchedSummary(obj))
         },
         check: function (level) {
           const toCheck = results.filter(obj => obj.level === level)
@@ -71,6 +85,9 @@ import App from './App.vue'
           globalCount.value++
           const carousel = new Carousel('#questionnaire-carousel')
           carousel.next()
+        },
+        on: function (event, callback) {
+          callbacks[event].push(callback)
         }
       });
     }

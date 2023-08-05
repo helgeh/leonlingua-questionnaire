@@ -74,7 +74,7 @@ Aldri bruk «yo tampoco».
     
         <LlLevel title="A2">
     
-            <LlQuestion q="_vacaciones." a="*En **De *A">
+            <LlQuestion q="_ vacaciones." a="*En **De *A">
               Fast uttrykk på spansk. «De vacaciones»
             </LlQuestion>
         

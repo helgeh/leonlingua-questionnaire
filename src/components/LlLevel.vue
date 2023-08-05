@@ -98,11 +98,15 @@
     const simpleroContainer = ref(null) // template ref
     const popover = ref(null)
     var pop = null
-    // const popTitle = ref('Vent vent!')
-    // const popContent = ref('Du må forsøke å løse oppgavene før du kan se hvor mange riktige du har! ;)')
 
     const simplero = document.querySelector('.simplero')
 
+
+    resultPlugin.on('touched', params => {
+        if (params.level === props.title && params.all) {
+            pop.disable()
+        }
+    })
 
     function checkResults() {
         const results = resultPlugin.check(props.title)
