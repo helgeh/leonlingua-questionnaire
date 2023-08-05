@@ -50,7 +50,7 @@
                 Man bruker «tener» for å angi alder på spansk.
               </LlQuestion>
           
-              <!-- <LlQuestion q="¿De _ color es la mesa?" a="*que **qué *cual">
+              <LlQuestion q="¿De _ color es la mesa?" a="*que **qué *cual">
                 Aksenttegn skiller ordene som er spørreord fra de andre.
   “qué” betyr hvilken/hvilket på spansk.
               </LlQuestion>
@@ -86,7 +86,7 @@
           
               <LlQuestion q="¿_ una farmacia por aquí cerca?" a="*Está **Hay *Es">
                 Når man spør om noe er eller fins, bruker man «hay».
-              </LlQuestion> -->
+              </LlQuestion>
           
           </LlLevel>
       
@@ -109,7 +109,7 @@
                 Han hadde med seg = trajo. Dette kommer av verbet «traer» som betyr å ha med seg.
               </LlQuestion>
           
-              <!-- <LlQuestion q="Ayer no te vi en clase.
+              <LlQuestion q="Ayer no te vi en clase.
   -Estaba muy cansado y no _." a="*vine **fui *iré">
                 I går så jeg deg ikke i timen. 
   -Jeg var veldig sliten, og jeg dro ikke.
@@ -162,7 +162,7 @@
   Qué =Hva 
   Cuál =hvilken 
   Quién =hvem
-              </LlQuestion> -->
+              </LlQuestion>
           
           </LlLevel>
       
@@ -179,7 +179,7 @@
                 «Acrodarse» er refleksivt verb og må ha refleksivt pronomen.
               </LlQuestion>
           
-              <!-- <LlQuestion q="¿Qué hora es?
+              <LlQuestion q="¿Qué hora es?
   -Pues no sé _ las 10?" a="**serán *son">
                 Når vi anslår tid, bruker vi futuro simple, «serán».
               </LlQuestion>
@@ -212,7 +212,7 @@
               <LlQuestion q="¿Sabes algo de Ángel?
   - Pues mira, _ encontrármelo en la calle." a="**acabo de *dejo de">
                 Når du akkurat har gjort noe, sier vi «acabo de».
-              </LlQuestion> -->
+              </LlQuestion>
           
           </LlLevel>
       
@@ -227,7 +227,7 @@
                 Imperativ i flertall i familiær form mister -d når vi får et etterhengt pronomen.
               </LlQuestion>
           
-              <!-- <LlQuestion q="¡Qué raro! Hoy no ha venido Juan.
+              <LlQuestion q="¡Qué raro! Hoy no ha venido Juan.
   - Habrá _ al médico." a="*irá **ido">
                 Vi bruker perfektum partisipp sammen med hjelpeverbet «haber» i alle tider.
   Fortid-nåtid-framtid
@@ -261,7 +261,7 @@
               <LlQuestion q="No gana bastante dinero para comprarse un piso, _ vive con sus padres." a="*entonces **así que * por eso *de ahí que">
                 Slik at eller “así que” forklarer hvorfor han må bo hos sine foreldre. 
   Årsaks-subjunksjon.
-              </LlQuestion> -->
+              </LlQuestion>
           
           </LlLevel>
       
