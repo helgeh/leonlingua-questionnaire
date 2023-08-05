@@ -1,6 +1,7 @@
 import { createApp, ref } from 'vue'
 
 import "bootstrap/dist/css/bootstrap.min.css"
+import {} from "@popperjs/core"
 import {Carousel} from "bootstrap"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -53,15 +54,18 @@ import App from './App.vue'
         },
         update: function (id, state) {
           var obj = results.find(obj => obj.id === id)
-          if (obj)
+          if (obj) {
+            obj.touched = true
             obj.result = state
+          }
         },
         check: function (level) {
           const toCheck = results.filter(obj => obj.level === level)
           toCheck.forEach(obj => obj.callback && obj.callback())
           const errorCount = toCheck.filter(obj => !obj.result).length
           const errorPercent = (errorCount * 100) / toCheck.length
-          return {level, count: toCheck.length, errorCount, errorPercent}
+          const touchedCount = toCheck.filter(obj => obj.touched).length
+          return {level, count: toCheck.length, errorCount, errorPercent, touchedCount}
         },
         advance: function () {
           globalCount.value++

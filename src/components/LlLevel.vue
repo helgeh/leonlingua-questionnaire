@@ -14,7 +14,7 @@
 
             <div class="card-footer">
                 <div class="d-flex justify-content-between">
-                    <button v-if="hasNext" @click="checkResults" class="btn btn-primary">SJEKK SVARENE!</button>
+                    <a v-if="hasNext" @click="checkResults" tabindex="0" role="button" ref="popover" class="btn btn-primary popover-trigger" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-title="Vent vent!" data-bs-content="Du må forsøke å løse oppgavene før du kan se hvor mange riktige du har! ;)">SJEKK SVARENE!</a>
                     <button v-if="!preventNext" @click="resultPlugin.advance()" class="btn btn-light">
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </button>
@@ -44,30 +44,17 @@
                     <p v-if="levelClear && preventNext" class="mb-0">
                         Du er ved veis ende. Les mer om Cervantes og nivåene <a href="https://leonlingua.no/qu_end">her</a>.
                     </p>
-                    <!-- <h4 class="alert-heading">Du klarte {{ resultCount }} av {{ totalCount }} spørsmål!</h4>
-                    <p>
-                        Var dette utfordring nok kan du registrere din epost hos oss og du vil få tilsendt alle svarene og tilbud på kurs tilpasset ditt nivå!
-                    </p>
-                    <hr>
-                    <p class="mb-0">Fyll inn skjemaet under:</p> -->
                 </div>
 
-                <p v-if="levelClear">
+                <p v-if="levelClear && !preventNext">
                     <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseSimplero" role="button" aria-expanded="false" aria-controls="collapseSimplero">
                         Registrer <font-awesome-icon icon="fa-solid fa-caret-down" />
                     </a>
                 </p>
-                <div :class="{'show': !levelClear}" class="collapse" id="collapseSimplero">
+                <div :class="{'show': !levelClear || preventNext}" class="collapse" id="collapseSimplero">
                     <div ref="simpleroContainer">
                     </div>
                 </div>
-                
-                <!-- <div v-if="!preventNext" class="alert alert-secondary mt-2" role="alert">
-                    <h5 class="alert-heading">Vil du ha mer utfordring?</h5>
-                    <p class="mb-0">
-                        Med nesten alle svarene riktig er du velkommen til å ta testen for neste nivå ({{ nextLevel }}). Da trykker du på den grønne knappen under for å gå videre.
-                    </p>
-                </div> -->
 
             </template>
 
@@ -81,7 +68,8 @@
 
 <script setup>
 
-    import { defineProps, ref, inject, onBeforeMount } from 'vue'
+    import { defineProps, ref, inject, onBeforeMount, onMounted } from 'vue'
+    import { Popover } from "bootstrap"
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import LlModal from './LlModal.vue'
     
@@ -108,14 +96,20 @@
 
     const modal = ref(null) // template ref (child instance)
     const simpleroContainer = ref(null) // template ref
+    const popover = ref(null)
+    var pop = null
+    // const popTitle = ref('Vent vent!')
+    // const popContent = ref('Du må forsøke å løse oppgavene før du kan se hvor mange riktige du har! ;)')
 
     const simplero = document.querySelector('.simplero')
 
 
     function checkResults() {
         const results = resultPlugin.check(props.title)
-        if (results.errorPercent > 99)
+        if (results.touchedCount < results.count) {
             return
+        }
+        else pop.disable()
         updateModal(results)
         modal.value.open()
     }
@@ -139,6 +133,13 @@
     onBeforeMount(() => {
         resultPlugin.addLevel(props.title)
         isActive.value = resultPlugin.getCurrentLevel() === props.title
+    })
+
+    onMounted(() => {
+        pop = Popover.getOrCreateInstance(popover.value, {
+            trigger: 'focus',
+            container: 'body'
+        })
     })
 
 </script>

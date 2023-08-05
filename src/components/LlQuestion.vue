@@ -25,7 +25,7 @@
 
 <script setup>
 
-    import { inject, ref, onBeforeMount, defineProps } from 'vue'
+    import { inject, ref, onBeforeMount, defineProps, defineEmits } from 'vue'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import LlQuestionPart from './LlQuestionPart.vue'
     import {every, some} from 'lodash'
@@ -34,6 +34,7 @@
     const utils = inject('utils')
 
     const props = defineProps(['q', 'a', 'level'])
+    const emit = defineEmits(['touched'])
 
     const parts = ref(utils.buildParts(props.q, props.a))
     const correct = ref(false)
@@ -41,6 +42,7 @@
 
     function onAnswered() {
         resultPlugin.update(props.q, isCorrect());
+        emit('touched')
     }
 
     function onReset() {
