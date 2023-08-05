@@ -42,7 +42,7 @@
                         Da kan du gå videre til neste nivå.
                     </p>
                     <p v-if="levelClear && preventNext" class="mb-0">
-                        Du er ved veis ende. Les mer om Cervantes og nivåene <a href="https://leonlingua.no/qu_end">her</a>.
+                        Du er ved veis ende. Les mer om Hablaonline og nivåene <a href="https://leonlingua.no/qu_end">her</a>.
                     </p>
                 </div>
 

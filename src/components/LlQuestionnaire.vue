@@ -1,32 +1,8 @@
 <template>
-    <!-- <a href="#/" class="link-secondary">&lt;- tilbake</a>
-            
-    <h2 title="v0.5">Niv&aring;test</h2> -->
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Slik gjør du:</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div class="card mb-4">
-          <div class="card-body">
-            Oppgavene best&aring;r av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. N&aring;r du er ferdig med alle oppgavene p&aring; et niv&aring;, f&aring;r du vite hvor mange riktige svar du har f&aring;tt. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste niv&aring;. Slik g&aring;r du fra niv&aring; til niv&aring; helt til du stanser.
-            <hr />
-            Dersom du ønsker kurs i spansk, vil du kunne melde deg p&aring; det kurset som passer til ditt niv&aring;. Informasjon og p&aring;melding til disse kursene finner du lenger ned p&aring; siden eller <a href="https://hablaonline.simplero.com/products">her</a>.
-          </div>
-          <div class="card-footer">
-            <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">
-              Les mer om spr&aring;kniv&aring;
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
 
-      <!-- <div class="col-lg-4">
+      <div class="col-lg-4">
         <div class="card mb-4">
           <img src="https://picsum.photos/id/1/800/600" class="card-img-top picture">
           <div class="card-header">
@@ -35,7 +11,7 @@
           <div class="card-body">
             Oppgavene best&aring;r av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. N&aring;r du er ferdig med alle oppgavene p&aring; et niv&aring;, f&aring;r du vite hvor mange riktige svar du har f&aring;tt. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste niv&aring;. Slik g&aring;r du fra niv&aring; til niv&aring; helt til du stanser.
             <hr />
-            Dersom du ønsker kurs i spansk, vil du kunne melde deg p&aring; det kurset som passer til ditt niv&aring;. Informasjon og p&aring;melding til disse kursene finner du lenger ned p&aring; siden eller <a href="https://hablaonline.simplero.com/products">her</a>.
+            Dersom du ønsker kurs i spansk, vil du kunne melde deg p&aring; det kurset som passer til ditt niv&aring;. Informasjon og p&aring;melding til disse kursene finner du lenger ned p&aring; siden eller <a href="https://hablaonline.simplero.com/products" class="btn btn-outline-success btn-sm">her</a>
           </div>
           <div class="card-footer">
             <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">
@@ -43,9 +19,9 @@
             </a>
           </div>
         </div>
-      </div> -->
+      </div>
       
-      <div id="questionnaire" class="col-lg-12">
+      <div id="questionnaire" class="col-lg-8">
           <div id="questionnaire-carousel" class="carousel slide" data-bs-touch="false">
               <div class="carousel-inner">
 
@@ -306,10 +282,7 @@
     </div>
 
     <div class="d-flex justify-content-between">
-        <a href="#/" class="link-secondary mt-2">&lt;- tilbake</a><a class="link-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-  HJELP
-</a>
-
+        <a href="#/" class="link-secondary mt-2">&lt;- tilbake</a>
     </div>
 
 </template>
@@ -317,11 +290,8 @@
 
 <script setup>
 
-    // import { inject } from 'vue'
     import LlLevel from './LlLevel.vue'
     import LlQuestion from './LlQuestion.vue'
-
-    // const levels = inject('levels')
 
 </script>
 

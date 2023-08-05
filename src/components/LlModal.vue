@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" v-if="!disabled" class="btn btn-success" data-bs-dismiss="modal" @click="goNext">
+                    <button type="button" v-if="!disabled" class="btn btn-primary" data-bs-dismiss="modal" @click="goNext">
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </button>
                 </div>

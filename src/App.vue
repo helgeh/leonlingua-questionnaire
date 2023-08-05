@@ -1,9 +1,5 @@
 <template>
 
-    <!-- <a href="#/">Home</a> |
-    <a href="#/questionnaire">Questionnaire</a> |
-    <a href="#/non-existent-path">Broken Link</a> -->
-    
     <component :is="currentView" />
 
 </template>
@@ -40,7 +36,7 @@
         --bs-link-color-rgb: 49,101,69;
         --bs-link-decoration: underline;
         --bs-link-hover-color: #30b700;
-        --bs-link-hover-color-rgb: 48,104,74;
+        --bs-link-hover-color-rgb: 49,101,69;
     }
     #app {
         font-family: "Mulish", Mulish, sans-serif;
@@ -56,7 +52,7 @@
         --bs-btn-hover-color: #fff;
         --bs-btn-hover-bg: #30b700;
         --bs-btn-hover-border-color: #2b9d02;
-        --bs-btn-focus-shadow-rgb: 49,132,253;
+        --bs-btn-focus-shadow-rgb: 49,101,69;
         --bs-btn-active-color: #fff;
         --bs-btn-active-bg: #2b9d02;
         --bs-btn-active-border-color: #238500;
