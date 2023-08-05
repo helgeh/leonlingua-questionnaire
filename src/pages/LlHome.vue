@@ -35,7 +35,7 @@
 </div>
 
 
-  <!-- <div class="container my-5" v-if="show(1)">
+  <div class="container my-5" v-if="show(1)">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Border hero with cropped image and shadows</h1>
@@ -91,12 +91,12 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
 
 
 
-<!-- <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="lightgreen"></rect></svg>
     <strong class="me-auto">LAYOUTER</strong>
@@ -111,7 +111,7 @@
       <button type="button" @click="setIndex(2)" :class="{'active': show(2) }" class="btn btn-outline-primary">3</button>
     </div>
   </div>
-</div> -->
+</div>
 
 </template>
 
@@ -119,25 +119,25 @@
 
     import {
         ref, 
-        // onMounted
+        onMounted
     } from 'vue'
 
     const index = ref(0)
 
-    // function setIndex(i) {
-    //     index.value = i
-    //     window.localStorage.setItem('current_index', i)
-    // }
+    function setIndex(i) {
+        index.value = i
+        window.localStorage.setItem('current_index', i)
+    }
 
     function show(i) {
         return index.value == i
     }
 
-    // onMounted(() => {
-    //     var val = window.localStorage.getItem('current_index')
-    //     if (val !== null)
-    //         index.value = +val
-    // })
+    onMounted(() => {
+        var val = window.localStorage.getItem('current_index')
+        if (val !== null)
+            index.value = +val
+    })
 
 </script>
 
