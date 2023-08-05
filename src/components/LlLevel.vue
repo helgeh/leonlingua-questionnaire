@@ -14,7 +14,7 @@
 
             <div class="card-footer">
                 <div class="d-flex justify-content-between">
-                    <a v-if="hasNext" @click="checkResults" tabindex="0" role="button" ref="popover" class="btn btn-primary popover-trigger" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-title="Vent vent!" data-bs-content="Du må forsøke å løse oppgavene før du kan se hvor mange riktige du har! ;)">SJEKK SVARENE!</a>
+                    <a v-if="hasNext" @click="checkResults" tabindex="0" role="button" ref="popover" class="btn btn-primary popover-trigger" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-title="Vent vent!" data-bs-content="Du må forsøke å løse alle oppgavene før du kan se hvor mange riktige du har! ;)">SJEKK SVARENE!</a>
                     <button v-if="!preventNext" @click="resultPlugin.advance()" class="btn btn-light">
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </button>
