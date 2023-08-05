@@ -55,10 +55,10 @@
         --bs-btn-border-color: #319E00;
         --bs-btn-hover-color: #fff;
         --bs-btn-hover-bg: #30b700;
-        --bs-btn-hover-border-color: #207203;
+        --bs-btn-hover-border-color: #2b9d02;
         --bs-btn-focus-shadow-rgb: 49,132,253;
         --bs-btn-active-color: #fff;
-        --bs-btn-active-bg: #207203;
+        --bs-btn-active-bg: #2b9d02;
         --bs-btn-active-border-color: #238500;
         --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
         --bs-btn-disabled-color: #fff;

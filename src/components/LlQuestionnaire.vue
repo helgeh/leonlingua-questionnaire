@@ -3,10 +3,30 @@
             
     <h2 title="v0.5">Niv&aring;test</h2> -->
 
-    <div class="row">
-      
-      <div class="col-lg-4">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Slik gjør du:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="card mb-4">
+          <div class="card-body">
+            Oppgavene best&aring;r av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. N&aring;r du er ferdig med alle oppgavene p&aring; et niv&aring;, f&aring;r du vite hvor mange riktige svar du har f&aring;tt. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste niv&aring;. Slik g&aring;r du fra niv&aring; til niv&aring; helt til du stanser.
+            <hr />
+            Dersom du ønsker kurs i spansk, vil du kunne melde deg p&aring; det kurset som passer til ditt niv&aring;. Informasjon og p&aring;melding til disse kursene finner du lenger ned p&aring; siden eller <a href="https://hablaonline.simplero.com/products">her</a>.
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">
+              Les mer om spr&aring;kniv&aring;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+
+      <!-- <div class="col-lg-4">
         <div class="card mb-4">
           <img src="https://picsum.photos/id/1/800/600" class="card-img-top picture">
           <div class="card-header">
@@ -23,10 +43,9 @@
             </a>
           </div>
         </div>
-
-      </div>
-
-      <div id="questionnaire" class="col-lg-8">
+      </div> -->
+      
+      <div id="questionnaire" class="col-lg-12">
           <div id="questionnaire-carousel" class="carousel slide" data-bs-touch="false">
               <div class="carousel-inner">
 
@@ -42,7 +61,7 @@
                 Ved angivelse av klokkeslett brukes alltid «a» sammen med «la/las» avhengig av tidspunktet.
               </LlQuestion>
           
-              <!-- <LlQuestion q="¿A qué hora sales de casa para ir a trabajar? 
+              <LlQuestion q="¿A qué hora sales de casa para ir a trabajar? 
   - _ a las 7.30." a="*Salto **Salgo *Salió">
                 “Sales” er du-form av verbet «salir» i nåtid. Man svarer i jeg-form som er «salgo».
               </LlQuestion>
@@ -55,7 +74,7 @@
                 Man bruker «tener» for å angi alder på spansk.
               </LlQuestion>
           
-              <LlQuestion q="¿De _ color es la mesa?" a="*que **qué *cual">
+              <!-- <LlQuestion q="¿De _ color es la mesa?" a="*que **qué *cual">
                 Aksenttegn skiller ordene som er spørreord fra de andre.
   “qué” betyr hvilken/hvilket på spansk.
               </LlQuestion>
@@ -106,7 +125,7 @@
                 På spansk sier vi «Jeg er Juan» når vi presenterer oss på telefon.
               </LlQuestion>
           
-              <!-- <LlQuestion q="¿Ha venido _ estudiante?" a="**algún *alguien">
+              <LlQuestion q="¿Ha venido _ estudiante?" a="**algún *alguien">
                 “alguien” har aldri et substantiv etter seg. Det står alltid alene.
               </LlQuestion>
           
@@ -114,7 +133,7 @@
                 Han hadde med seg = trajo. Dette kommer av verbet «traer» som betyr å ha med seg.
               </LlQuestion>
           
-              <LlQuestion q="Ayer no te vi en clase.
+              <!-- <LlQuestion q="Ayer no te vi en clase.
   -Estaba muy cansado y no _." a="*vine **fui *iré">
                 I går så jeg deg ikke i timen. 
   -Jeg var veldig sliten, og jeg dro ikke.
@@ -286,11 +305,12 @@
 
     </div>
 
-    <a href="#/" class="link-secondary mt-2">&lt;- tilbake</a>
+    <div class="d-flex justify-content-between">
+        <a href="#/" class="link-secondary mt-2">&lt;- tilbake</a><a class="link-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  HJELP
+</a>
 
-    <!-- <div class="d-flex justify-content-end">
-        <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages" class="btn btn-link">Referanse</a>
-    </div> -->
+    </div>
 
 </template>
 
