@@ -18,7 +18,7 @@
 			Når du har funnet ditt nivå og registrert din epost vil du få løsning på oppgavene og tilbud om kurs tilpasset ditt nivå tilsendt.
         </p>
         <div class="mb-4 mb-lg-3">
-          	<a href="#/questionnaire" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Start testen</a>
+          	<a href="#/questions" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Start testen</a>
         </div>
         <div class="mb-4 mb-lg-3">
 			<a href="#/" class="link-secondary">&lt;- tilbake</a>

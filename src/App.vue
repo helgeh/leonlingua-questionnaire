@@ -14,7 +14,7 @@
 
     const routes = {
         '/': LlHome,
-        '/questionnaire': LlSignUp,
+        '/questions': LlSignUp,
         '/about': LlAbout
     }
 

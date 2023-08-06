@@ -21,7 +21,7 @@
       Når du har funnet ditt nivå kan du legge igjen epostadressen din og få løsningen på oppgavene
     </p>
     <div class="d-inline-flex gap-2 mb-5">
-      <a href="#/questionnaire" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill">
+      <a href="#/questions" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill">
         Start testen
         <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
       </a>
