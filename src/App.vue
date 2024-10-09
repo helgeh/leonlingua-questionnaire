@@ -2,6 +2,8 @@
 
     <component :is="currentView" />
 
+    <LlLocaleChanger />
+
 </template>
 
 <script setup>
@@ -11,6 +13,8 @@
     import LlSignUp from './pages/LlSignUp.vue'
     import LlAbout from './pages/LlAbout.vue'
     import LlNotFound from './pages/LlNotFound.vue'
+
+    import LlLocaleChanger from './components/LlLocaleChanger.vue'
 
     const routes = {
         '/': LlHome,
@@ -60,6 +64,12 @@
         --bs-btn-disabled-color: #fff;
         --bs-btn-disabled-bg: #319E00;
         --bs-btn-disabled-border-color: #319E00;
+    }
+    .locale-changer {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 99;
     }
 
 </style>

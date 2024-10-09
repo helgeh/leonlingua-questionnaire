@@ -1,0 +1,123 @@
+{
+	"messages": {
+		"en": {
+			"general": {
+				"back": "back",
+				"selectlabel": "Choose",
+				"of": "of",
+				"here": "here",
+				"register": "Register",
+				"firstname": "Name",
+				"email": "E-mail",
+				"emailplaceholder": "name@example.com",
+				"starttest": "Start the Test",
+				"locale": "Language"
+			},
+			"app": {
+				"checkanswers": {
+					"label": "Check results!",
+					"holdontitle": "Hold on!",
+					"holdonbody": "You have to give each task a try before you can see how you did! ;)"
+				}
+			},
+			"frontpage": {
+				"title": "Nivåtest i spansk",
+				"subtitle": "Når du har funnet ditt nivå kan du legge igjen epostadressen din og få løsningen på oppgavene"
+			},
+			"about": {
+				"title": "How to?",
+				"lead": "Du kan beregne ditt nivå ut fra hvor mange riktige svar du får.",
+				"body1": "Hvis du skårer fra 80-100% på nivå A1, men ikke klarer så mange på A2, er nivået ditt A1. Da vil jeg anbefale deg å starte kurs på A2-nivå.",
+				"body2": "På denne måten finner du ut hva som passer best for deg.",
+				"body3": "Når du har funnet ditt nivå og registrert din epost vil du få løsning på oppgavene og tilbud om kurs tilpasset ditt nivå tilsendt."
+			},
+			"instructions": {
+				"header": "Slik gjør du:",
+				"body1": "Oppgavene består av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. Når du er ferdig med alle oppgavene på et nivå, får du vite hvor mange riktige svar du har fått. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste nivå. Slik går du fra nivå til nivå helt til du stanser.",
+				"body2": "Dersom du ønsker kurs i spansk, vil du kunne melde deg på det kurset som passer til ditt nivå. Informasjon og påmelding til disse kursene finner du lenger ned på siden eller på",
+				"body2link": "her",
+				"footer": "Les mer om språknivå"
+			},
+			"results": {
+				"header": "Resultater for nivå",
+				"congrats": "Gratulerer!",
+				"score": {
+					"pre": "Du klarte",
+					"post": "spørsmål"
+				},
+				"responses": {
+					"enough": "Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.",
+					"advance": "Da kan du gå videre til neste nivå.",
+					"end": "Du er ved veis ende. Les mer om Hablaonline og nivåene"
+				}
+			},
+			"simplero": {
+				"header": "Få svar og forklaringer her.",
+				"accept": "Jeg aksepterer å motta e-poster med relevant informasjon, tips og tilbud om kurs.",
+				"nospam": "Vi liker heller ikke spam. Du kan melde deg av denne e-postlisten når du selv vil.",
+				"thankyou": "Tusen takk!",
+				"thankyou": "Thank you!",
+				"goaway": "Go away, box!"
+			}
+		},
+		"no": {
+			"general": {
+				"back": "tilbake",
+				"selectlabel": "Velg",
+				"of": "av",
+				"here": "her",
+				"register": "Registrer",
+				"firstname": "Fornavn",
+				"email": "E-post",
+				"emailplaceholder": "din@epost.adresse",
+				"starttest": "Start testen",
+				"locale": "Språk"
+			},
+			"app": {
+				"checkanswers": {
+					"label": "Sjekk svarene!",
+					"holdontitle": "Vent vent!",
+					"holdonbody": "Du må forsøke å løse alle oppgavene før du kan se hvor mange riktige du har! ;)"
+				}
+			},
+			"frontpage": {
+				"title": "Nivåtest i spansk",
+				"subtitle": "Når du har funnet ditt nivå kan du legge igjen epostadressen din og få løsningen på oppgavene"
+			},
+			"about": {
+				"title": "Hvordan?",
+				"lead": "Du kan beregne ditt nivå ut fra hvor mange riktige svar du får.",
+				"body1": "Hvis du skårer fra 80-100% på nivå A1, men ikke klarer så mange på A2, er nivået ditt A1. Da vil jeg anbefale deg å starte kurs på A2-nivå.",
+				"body2": "På denne måten finner du ut hva som passer best for deg.",
+				"body3": "Når du har funnet ditt nivå og registrert din epost vil du få løsning på oppgavene og tilbud om kurs tilpasset ditt nivå tilsendt."
+			},
+			"instructions": {
+				"header": "Slik gjør du:",
+				"body1": "Oppgavene består av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. Når du er ferdig med alle oppgavene på et nivå, får du vite hvor mange riktige svar du har fått. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste nivå. Slik går du fra nivå til nivå helt til du stanser.",
+				"body2": "Dersom du ønsker kurs i spansk, vil du kunne melde deg på det kurset som passer til ditt nivå. Informasjon og påmelding til disse kursene finner du lenger ned på siden eller på",
+				"body2link": "her",
+				"footer": "Les mer om språknivå"
+			},
+			"results": {
+				"header": "Resultater for nivå",
+				"congrats": "Gratulerer!",
+				"score": {
+					"pre": "Du klarte",
+					"post": "spørsmål"
+				},
+				"responses": {
+					"enough": "Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.",
+					"advance": "Da kan du gå videre til neste nivå.",
+					"end": "Du er ved veis ende. Les mer om Hablaonline og nivåene"
+				}
+			},
+			"simplero": {
+				"header": "Få svar og forklaringer her.",
+				"accept": "Jeg aksepterer å motta e-poster med relevant informasjon, tips og tilbud om kurs.",
+				"nospam": "Vi liker heller ikke spam. Du kan melde deg av denne e-postlisten når du selv vil.",
+				"thankyou": "Tusen takk!",
+				"goaway": "Lukk"
+			}
+		}
+	}
+}

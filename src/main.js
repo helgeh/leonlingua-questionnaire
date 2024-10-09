@@ -1,4 +1,5 @@
 import { createApp, ref } from 'vue'
+import { createI18n } from 'vue-i18n'
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import {} from "@popperjs/core"
@@ -18,9 +19,17 @@ library.add(faTimes, faArrowRight, faCaretDown)
 
 import './style.css'
 import App from './App.vue'
+import { messages } from './locales'
+
+const i18n = createI18n({
+  locale: 'en',
+  fallbackLocale: 'no',
+  messages: messages
+})
 
 
 	const app = createApp(App)
+  app.use(i18n)
 
   const globalCount = ref(0)
   function useCount() {

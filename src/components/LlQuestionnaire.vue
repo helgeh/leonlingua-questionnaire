@@ -6,16 +6,16 @@
         <div class="card mb-4">
           <img src="https://picsum.photos/id/1/800/600" class="card-img-top picture">
           <div class="card-header">
-            <h4 class="mt-1">Slik gjør du:</h4>
+            <h4 class="mt-1">{{ $t('instructions.header') }}</h4>
           </div>
           <div class="card-body">
-            Oppgavene best&aring;r av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. N&aring;r du er ferdig med alle oppgavene p&aring; et niv&aring;, f&aring;r du vite hvor mange riktige svar du har f&aring;tt. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste niv&aring;. Slik g&aring;r du fra niv&aring; til niv&aring; helt til du stanser.
+            {{ $t('instructions.body1') }}
             <hr />
-            Dersom du ønsker kurs i spansk, vil du kunne melde deg p&aring; det kurset som passer til ditt niv&aring;. Informasjon og p&aring;melding til disse kursene finner du lenger ned p&aring; siden eller <a href="https://hablaonline.simplero.com/products" class="btn btn-outline-success btn-sm">her</a>
+            {{ $t('instructions.body2') }} <a href="{{ simpleroProducts }}" class="link-success">Hablaonline</a>
           </div>
           <div class="card-footer">
-            <a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">
-              Les mer om spr&aring;kniv&aring;
+            <a href="{{ CEFR }}">
+              {{ $t('instructions.footer') }}
             </a>
           </div>
         </div>
@@ -282,7 +282,7 @@
     </div>
 
     <div class="d-flex justify-content-between">
-        <a href="#/" class="link-secondary mt-2">&lt;- tilbake</a>
+        <a href="#/" class="link-secondary mt-2">&lt;- {{ $t('general.back') }}</a>
     </div>
 
 </template>
@@ -290,8 +290,13 @@
 
 <script setup>
 
+    import { ref } from 'vue'
+
     import LlLevel from './LlLevel.vue'
     import LlQuestion from './LlQuestion.vue'
+
+    const simpleroProducts = ref('https://hablaonline.simplero.com/products')
+    const CEFR = ref('https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages')
 
 </script>
 

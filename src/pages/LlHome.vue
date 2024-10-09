@@ -16,17 +16,17 @@
   </svg>
   <div class="p-5 text-center bg-body-tertiary rounded-3">
     <img src="../assets/logo.svg" class="logo mb-2" alt="Logo" height="260" />
-    <h1 class="text-body-emphasis">Nivåtest i spansk</h1>
+    <h1 class="text-body-emphasis">{{ $t('frontpage.title') }}</h1>
     <p class="col-lg-8 mx-auto fs-5 text-muted">
-      Når du har funnet ditt nivå kan du legge igjen epostadressen din og få løsningen på oppgavene
+      {{ $t('frontpage.subtitle') }}
     </p>
     <div class="d-inline-flex gap-2 mb-5">
       <a href="#/questions" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill">
-        Start testen
+        {{ $t('general.starttest') }}
         <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
       </a>
       <a href="#/about" class="d-inline-flex align-items-center btn btn-outline-secondary btn-lg px-4 rounded-pill">
-        Hvordan?
+        {{ $t('about.title') }}
       </a>
     </div>
   </div>

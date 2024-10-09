@@ -5,8 +5,12 @@
     <template v-if="alt">
 
     <select class="" @change="onChange" v-model="answer">
-        <option value="-">Velg</option>
-        <option v-for="answer in alt.answers" :key='answer.toString()' :value="answer">{{answer}}</option>
+        <option value="-">
+            {{ $t('general.selectlabel') }}
+        </option>
+        <option v-for="answer in alt.answers" :key='answer.toString()' :value="answer">
+            {{answer}}
+        </option>
     </select>
 
     </template>

@@ -12,7 +12,7 @@
     <a class="simplero-admin" data-behavior="asset-field-choose" data-target="landing_page_asset_id" data-media-type="image" href="#">Change image</a>
   </div>
   
-      <h3 class="simplero-signup-title"><div><p><span style="color: #ffffff;">Få resultatene fra testen din nå.</span></p></div></h3>
+      <h3 class="simplero-signup-title"><div><p><span style="color: #ffffff;">{{ $t('simplero.header') }}</span></p></div></h3>
       <div class="simplero-wysiwyg-content"></div>
     </div>
     <div class="simplero-signup-content">
@@ -23,29 +23,29 @@
   
     
       
-        <input type="text" name="first_names" placeholder="Fornavn">
+        <input type="text" name="first_names" placeholder="{{ $t('general.firstname') }}">
       
     
   
     
       
-        <div style="width: 100%; margin-bottom: 0.5em;" class="simplero-field simplero-email-wrapper"><input type="email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="E-post" required="required" style="margin-bottom: 0px;" class="email-autocorrect-initialized"></div>
+        <div style="width: 100%; margin-bottom: 0.5em;" class="simplero-field simplero-email-wrapper"><input type="email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="{{ $t('general.emailplaceholder') }}" required="required" style="margin-bottom: 0px;" class="email-autocorrect-initialized"></div>
       
     
   
   
         <div class="simplero-signup-submit">
           <label class="simplero-gdpr_consent">
-  <input name="gdpr_consent" type="checkbox" value="1">Jeg aksepterer å motta e-poster med relevant informasjon, tips og tilbud om kurs.</label>
+  <input name="gdpr_consent" type="checkbox" value="1">{{ $t('simplero.accept') }}</label>
   <input type="hidden" name="gdpr_consent_text" value="Jeg aksepterer å motta e-poster med relevant informasjon, tips og tilbud om kurs."><input name="submit" value="Ja takk! " type="submit" class="simplero-submit">
         </div>
       </div>
       <div class="simplero-signup-footer">
-        <div class="simplero-signup-footer-desc simplero-notice"><p>Vi liker heller ikke spam. Du kan melde deg av denne e-postlisten når du selv vil.</p></div>
+        <div class="simplero-signup-footer-desc simplero-notice"><p>{{ $t('simplero.nospam') }}</p></div>
       </div>
     </div>
     <div class="simplero-signup-success">
-      <div class="simplero-wysiwyg-content"><div class="wysiwyg-content">Thank you!</div></div>
+      <div class="simplero-wysiwyg-content"><div class="wysiwyg-content">{{ $t('simplero.thankyou') }}</div></div>
     </div>
     <div class="simplero-powered-by"></div>
   </div>
@@ -57,13 +57,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
     </div>
-    <div class="simplero-close-modal simplero-landing-page-close"><a href="#">Go away, box!</a></div>
+    <div class="simplero-close-modal simplero-landing-page-close"><a href="#">{{ $t('simplero.goaway') }}</a></div>
     <div class="simplero-landing-page-already-converted wysiwyg-content">
       
     </div>
   </form>
 </div>
 </template>
+
+<script setup></script>
 
 <style>
   #simplero-landing-page-290409 {

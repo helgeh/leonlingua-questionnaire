@@ -14,7 +14,9 @@
 
             <div class="card-footer">
                 <div class="d-flex justify-content-between">
-                    <a v-if="hasNext" @click="checkResults" tabindex="0" role="button" ref="popover" class="btn btn-primary popover-trigger my-3" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-title="Vent vent!" data-bs-content="Du må forsøke å løse alle oppgavene før du kan se hvor mange riktige du har! ;)">SJEKK SVARENE!</a>
+                    <a v-if="hasNext" @click="checkResults" tabindex="0" role="button" ref="popover" class="btn btn-primary popover-trigger my-3 text-uppercase" data-bs-trigger="focus" data-bs-placement="bottom" :data-bs-title="popoverTitle" :data-bs-content="popoverBody">
+                        {{ $t('app.checkanswers.label')}}
+                    </a>
                     <button v-if="!preventNext" @click="resultPlugin.advance()" class="btn btn-light">
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </button>
@@ -25,30 +27,30 @@
 
         <LlModal :on-dismiss="onModalHide" :disabled="preventNext" ref="modal">
 
-            <template v-slot:title>Resultater for nivå {{currentLevel}}</template>
+            <template v-slot:title>{{ $t('results.header')}} {{currentLevel}}</template>
 
             <template v-slot:body>
 
                 <div class="alert" :class="{ 'alert-success': levelClear, 'alert-info': !levelClear }" role="alert">
-                    <h4 class="alert-heading">Gratulerer!</h4>
+                    <h4 class="alert-heading">{{ $t('results.congrats') }}</h4>
                     <p>
-                        Du klarte <strong>{{ resultCount }}</strong> av <strong>{{ totalCount }}</strong> spørsmål!
+                        {{ $t('results.score.pre') }} <strong>{{ resultCount }}</strong> {{ $t('general.of') }} <strong>{{ totalCount }}</strong> {{ $t('results.score.post') }}!
                     </p>
                     <hr />
                     <p v-if="!levelClear" class="mb-0">
-                        Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.
+                        {{ $t('results.responses.enough') }}
                     </p>
                     <p v-if="levelClear && !preventNext" class="mb-0">
-                        Da kan du gå videre til neste nivå.
+                        {{ $t('results.responses.advance') }}
                     </p>
                     <p v-if="levelClear && preventNext" class="mb-0">
-                        Du er ved veis ende. Les mer om Hablaonline og nivåene <a href="https://leonlingua.no/qu_end">her</a>.
+                        {{ $t('results.responses.end') }} <a href="https://leonlingua.no/qu_end">{{ $t('general.here') }}</a>.
                     </p>
                 </div>
 
                 <p v-if="levelClear && !preventNext">
                     <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseSimplero" role="button" aria-expanded="false" aria-controls="collapseSimplero">
-                        Registrer <font-awesome-icon icon="fa-solid fa-caret-down" />
+                        {{ $t('general.register') }} <font-awesome-icon icon="fa-solid fa-caret-down" />
                     </a>
                 </p>
                 <div :class="{'show': !levelClear || preventNext}" class="collapse" id="collapseSimplero">
@@ -68,10 +70,13 @@
 
 <script setup>
 
-    import { defineProps, ref, inject, onBeforeMount, onMounted } from 'vue'
+    import { defineProps, ref, watch, inject, onBeforeMount, onMounted } from 'vue'
+    import { useI18n } from 'vue-i18n'
     import { Popover } from "bootstrap"
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import LlModal from './LlModal.vue'
+
+    const { t, locale } = useI18n()
     
     const resultPlugin = inject('resultPlugin')
 
@@ -97,10 +102,18 @@
     const modal = ref(null) // template ref (child instance)
     const simpleroContainer = ref(null) // template ref
     const popover = ref(null)
+    const popoverTitle = ref(t('app.checkanswers.holdontitle'))
+    const popoverBody = ref(t('app.checkanswers.holdonbody'))
     var pop = null
 
     const simplero = document.querySelector('.simplero')
 
+    watch(locale, () => {
+        pop.setContent({
+            '.popover-header': t('app.checkanswers.holdontitle'),
+            '.popover-body': t('app.checkanswers.holdonbody')
+        })
+    });
 
     resultPlugin.on('touched', params => {
         if (params.level === props.title && params.all) {
