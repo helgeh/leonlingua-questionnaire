@@ -5,18 +5,11 @@
     </button>
     <ul class="dropdown-menu">
       <li v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`">
-        <a href="javascript:void 0" @click="$i18n.locale = locale" class="dropdown-item" :class="[flagClass(locale), activeClass(locale)]">
+        <a href="javascript:void 0" @click="$i18n.locale = locale" class="dropdown-item flagged" :class="[flagClass(locale), activeClass(locale)]">
           {{ locales[locale] }}
         </a>
       </li>
     </ul>
-
-    <!-- <span>{{ $t('general.locale') }}</span>: 
-    <select v-model="$i18n.locale">
-      <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale" :class="`flag-${locale}`">
-        {{ locales[locale] }}
-      </option>
-    </select> -->
   </div>
 </template>
 
@@ -45,7 +38,15 @@
 </script>
 
 <style scoped>
-  [class^="flag-"] {
+  @font-face {
+    font-family: NotoColorEmojiLimited;
+    unicode-range: U+1F1E6-1F1FF;
+    src: url(/src/assets/NotoColorEmoji.ttf);
+  }
+  .flagged {
+    font-family: 'NotoColorEmojiLimited', -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 
+    'Segoe UI Emoji', 'Segoe UI Symbol';
     vertical-align: middle;
     &:after {
       padding-left: 5px;
