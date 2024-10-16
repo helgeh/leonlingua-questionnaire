@@ -8,7 +8,7 @@
 				"here": "here",
 				"register": "Register",
 				"firstname": "Name",
-				"email": "E-mail",
+				"email": "Email",
 				"emailplaceholder": "name@example.com",
 				"starttest": "Start the Test",
 				"locale": "Language"
@@ -21,41 +21,40 @@
 				}
 			},
 			"frontpage": {
-				"title": "Nivåtest i spansk",
-				"subtitle": "Når du har funnet ditt nivå kan du legge igjen epostadressen din og få løsningen på oppgavene"
+				"title": "Test your Spanish level",
+				"subtitle": "When you have found your level, you can leave your email address and get the solution to the tasks"
 			},
 			"about": {
 				"title": "How to?",
-				"lead": "Du kan beregne ditt nivå ut fra hvor mange riktige svar du får.",
-				"body1": "Hvis du skårer fra 80-100% på nivå A1, men ikke klarer så mange på A2, er nivået ditt A1. Da vil jeg anbefale deg å starte kurs på A2-nivå.",
-				"body2": "På denne måten finner du ut hva som passer best for deg.",
-				"body3": "Når du har funnet ditt nivå og registrert din epost vil du få løsning på oppgavene og tilbud om kurs tilpasset ditt nivå tilsendt."
+				"lead": "You can calculate your level based on how many correct answers you get.",
+				"body1": "If you score from 80-100% at level A1, but don't manage as many at A2, your level is A1. Then I would recommend that you start the course at A2 level.",
+				"body2": "In this way, you find out what suits you best.",
+				"body3": "When you have found your level and registered your e-mail, you will receive a solution to the tasks and an offer of a course adapted to your level sent to you."
 			},
 			"instructions": {
-				"header": "Slik gjør du:",
-				"body1": "Oppgavene består av setninger som mangler ett eller flere ord. Du velger dine forslag fra en nedtrekksmeny. Når du er ferdig med alle oppgavene på et nivå, får du vite hvor mange riktige svar du har fått. Hvis du har mellom 80 og 100% riktige svar, kan du fortsette til neste nivå. Slik går du fra nivå til nivå helt til du stanser.",
-				"body2": "Dersom du ønsker kurs i spansk, vil du kunne melde deg på det kurset som passer til ditt nivå. Informasjon og påmelding til disse kursene finner du lenger ned på siden eller på",
-				"body2link": "her",
-				"footer": "Les mer om språknivå"
+				"header": "Here's how to do it:",
+				"body1": "The tasks consist of sentences with one or more words missing. You select your suggestions from a drop-down menu. When you finish all the tasks in a level, you will know how many correct answers you got. If you have between 80 and 100% correct answers, you can continue to the next level. This is how you go from level to level until you stop.",
+				"body2": "If you want a course in Spanish, you will be able to sign up for the course that suits your level. Information and registration for these courses can be found further down the page or at",
+				"body2link": "here",
+				"footer": "Read more about language level"
 			},
 			"results": {
-				"header": "Resultater for nivå",
-				"congrats": "Gratulerer!",
+				"header": "Results for level",
+				"congrats": "Congratulations!",
 				"score": {
-					"pre": "Du klarte",
-					"post": "spørsmål"
+					"pre": "You resolved",
+					"post": "question"
 				},
 				"responses": {
-					"enough": "Det ser ut som du har nådd ditt nivå. Registrer deg med navn og epost her, så får du tilsendt svarene på testen og forslag/tilbud om kurs tilpasset ditt nivå.",
-					"advance": "Da kan du gå videre til neste nivå.",
-					"end": "Du er ved veis ende. Les mer om Hablaonline og nivåene"
+					"enough": "It looks like you have reached your level. Register with your name and email here, and you will be sent the answers to the test and suggestions/offers for courses adapted to your level.",
+					"advance": "Move on to the next level.",
+					"end": "You are at the end of the road. Read more about Hablaonline and the levels"
 				}
 			},
 			"simplero": {
-				"header": "Få svar og forklaringer her.",
-				"accept": "Jeg aksepterer å motta e-poster med relevant informasjon, tips og tilbud om kurs.",
-				"nospam": "Vi liker heller ikke spam. Du kan melde deg av denne e-postlisten når du selv vil.",
-				"thankyou": "Tusen takk!",
+				"header": "Get answers and explanations here.",
+				"accept": "I accept receiving e-mails with relevant information, tips and offers for courses.",
+				"nospam": "We also don't like spam. You can unsubscribe from this mailing list whenever you want.",
 				"thankyou": "Thank you!",
 				"goaway": "Go away, box!"
 			}
