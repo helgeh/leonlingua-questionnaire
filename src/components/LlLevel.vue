@@ -106,7 +106,10 @@
     const popoverBody = ref(t('app.checkanswers.holdonbody'))
     var pop = null
 
-    const simplero = document.querySelector('.simplero')
+    const simplero = {
+        no: document.querySelector('.simplero.no'),
+        en: document.querySelector('.simplero.en')
+    }
 
     watch(locale, () => {
         pop.setContent({
@@ -143,8 +146,9 @@
         preventNext.value = !levelClear.value || nextLevel.value === ''
         resultCount.value = results.count - results.errorCount
         totalCount.value = results.count
-        simpleroContainer.value.appendChild(simplero)
-        simplero.classList.remove('invisible')
+        Object.keys(simplero).forEach(k => simplero[k].classList.add('invisible'))
+        simpleroContainer.value.replaceChildren(simplero[locale.value])
+        simplero[locale.value].classList.remove('invisible')
     }
 
     onBeforeMount(() => {
