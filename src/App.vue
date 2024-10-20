@@ -8,13 +8,27 @@
 
 <script setup>
 
-    import { ref, computed } from 'vue'
+    import { ref, computed, watch } from 'vue'
+    import { useI18n } from 'vue-i18n'
+
     import LlHome from './pages/LlHome.vue'
     import LlSignUp from './pages/LlSignUp.vue'
     import LlAbout from './pages/LlAbout.vue'
     import LlNotFound from './pages/LlNotFound.vue'
 
     import LlLocaleChanger from './components/LlLocaleChanger.vue'
+
+
+    const { locale } = useI18n()
+
+    watch(locale, (newVal, oldVal) => {
+      localStorage.setItem('locale', newVal)
+    })
+
+    const storedLocale = localStorage.getItem('locale')
+    if (storedLocale) {
+      locale.value = storedLocale
+    }
 
     const routes = {
         '/': LlHome,

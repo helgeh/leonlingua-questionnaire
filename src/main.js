@@ -22,8 +22,8 @@ import App from './App.vue'
 import { messages } from './locales'
 
 const i18n = createI18n({
-  locale: 'en',
-  fallbackLocale: 'no',
+  locale: 'no',
+  fallbackLocale: 'en',
   messages: messages
 })
 
